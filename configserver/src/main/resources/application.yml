@@ -6,7 +6,9 @@ spring:
       server:
         git:
           uri: https://github.com/Jzh8686/project-configuration
-          search-paths: /*
+          search-paths: /**
+          repos:
+            patterns: application-config
 
 
 
