@@ -9,6 +9,8 @@ spring:
           search-paths: /**
           repos:
             patterns: application-config
+  application:
+    name: config-server
 
 
 
