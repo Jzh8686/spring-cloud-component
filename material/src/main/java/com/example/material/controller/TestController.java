@@ -1,17 +1,21 @@
 package com.example.material.controller;
 
+import com.example.material.dao.MaterialDao;
+import com.example.material.entity.MaterialOutSheet;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 public class TestController {
+    @Autowired
+    MaterialDao materialDao;
 
-    @Value("${test}")
-    String test;
-    @GetMapping("/test")
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
     public String test(){
-
-        return test;
+        Optional<MaterialOutSheet> materialOutSheet = materialDao.getMaterialOutSheetById("201811113070");
+        return materialOutSheet.get().getOutSheetNo();
     }
 }
